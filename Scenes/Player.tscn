@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cpayueepcxywd"]
+
+[ext_resource type="Script" uid="uid://c1shrpfc46h7x" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://cu4bhep64q423" path="res://Assets/Tim - characterAnimations - v1.2/JumpPack_CharacterSpriteSheet.png" id="1_rpqav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ostoq"]
+size = Vector2(20, 31)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1449712719]
+script = ExtResource("1_kyqiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=856730742]
+texture = ExtResource("1_rpqav")
+hframes = 4
+vframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=778782009]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ostoq")
