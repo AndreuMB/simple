@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://d3bja6bnvvgx"]
 
-[ext_resource type="Texture2D" uid="uid://bpenfxhg3j2ct" path="res://Assets/JumpPack-SimpleTiles v1.0/SimpleTiles_color1.png" id="1_q12u6"]
-[ext_resource type="Texture2D" uid="uid://lyn7wnu0wl4p" path="res://Assets/JumpPack-SimpleTiles v1.0/SimpleTiles_allColors.png" id="2_joc8x"]
-[ext_resource type="Texture2D" uid="uid://cqp5rfrjgldhi" path="res://Assets/Backgrounds/background1.png" id="3_joc8x"]
-[ext_resource type="PackedScene" uid="uid://cpayueepcxywd" path="res://Scenes/Player.tscn" id="4_jghel"]
+[ext_resource type="Texture2D" uid="uid://bpenfxhg3j2ct" path="res://Assets/JumpPack-SimpleTiles v1.0/SimpleTiles_color1.png" id="1_lyd6k"]
+[ext_resource type="Texture2D" uid="uid://lyn7wnu0wl4p" path="res://Assets/JumpPack-SimpleTiles v1.0/SimpleTiles_allColors.png" id="2_y4dr7"]
+[ext_resource type="Texture2D" uid="uid://cqp5rfrjgldhi" path="res://Assets/Backgrounds/background1.png" id="3_didp7"]
+[ext_resource type="PackedScene" uid="uid://cpayueepcxywd" path="res://Scenes/Player.tscn" id="4_2a60c"]
+[ext_resource type="PackedScene" uid="uid://53se0jef1qtc" path="res://Scenes/coin.tscn" id="5_y4dr7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jghel"]
-texture = ExtResource("1_q12u6")
+texture = ExtResource("1_lyd6k")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -121,7 +122,7 @@ texture = ExtResource("1_q12u6")
 11:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_slnnj"]
-texture = ExtResource("2_joc8x")
+texture = ExtResource("2_y4dr7")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -652,12 +653,15 @@ tile_set = SubResource("TileSet_ostoq")
 z_index = -1
 position = Vector2(410, 303)
 scale = Vector2(0.70582336, 0.70582324)
-texture = ExtResource("3_joc8x")
+texture = ExtResource("3_didp7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1083612473]
 position = Vector2(342, 201.00002)
 scale = Vector2(0.70582336, 0.70582324)
 zoom = Vector2(2, 2)
 
-[node name="CharacterBody2D" parent="." unique_id=1449712719 instance=ExtResource("4_jghel")]
+[node name="CharacterBody2D" parent="." unique_id=1449712719 instance=ExtResource("4_2a60c")]
 position = Vector2(227, 173)
+
+[node name="Area2D" parent="." unique_id=846148105 instance=ExtResource("5_y4dr7")]
+position = Vector2(177, 112)
