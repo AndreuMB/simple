@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c7k15kuxkriob"]
+
+[ext_resource type="Texture2D" uid="uid://bpenfxhg3j2ct" path="res://Assets/JumpPack-SimpleTiles v1.0/SimpleTiles_color1.png" id="1_0juii"]
+[ext_resource type="Script" uid="uid://dm7m1trxybslx" path="res://Scripts/trap.gd" id="1_xmcxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb81p"]
+size = Vector2(30, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ostoq"]
+atlas = ExtResource("1_0juii")
+region = Rect2(64.175156, 149.94011, 31.86354, 10.774002)
+
+[node name="Area2D" type="Area2D" unique_id=272962860]
+script = ExtResource("1_xmcxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1278932801]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_xb81p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1852730495]
+texture = SubResource("AtlasTexture_ostoq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

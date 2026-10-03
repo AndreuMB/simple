@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cqp5rfrjgldhi" path="res://Assets/Backgrounds/background1.png" id="3_didp7"]
 [ext_resource type="PackedScene" uid="uid://cpayueepcxywd" path="res://Scenes/Player.tscn" id="4_2a60c"]
 [ext_resource type="PackedScene" uid="uid://53se0jef1qtc" path="res://Scenes/coin.tscn" id="5_y4dr7"]
+[ext_resource type="Script" uid="uid://ctvna6u7jjp3y" path="res://Scripts/death_zone.gd" id="6_didp7"]
+[ext_resource type="PackedScene" uid="uid://c7k15kuxkriob" path="res://Scenes/trap.tscn" id="7_2a60c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jghel"]
 texture = ExtResource("1_lyd6k")
@@ -643,6 +645,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jghel")
 sources/1 = SubResource("TileSetAtlasSource_slnnj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ostoq"]
+size = Vector2(775.5, 121.5)
+
 [node name="Node2D" type="Node2D" unique_id=1225726705]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2005671127]
@@ -660,8 +665,28 @@ position = Vector2(342, 201.00002)
 scale = Vector2(0.70582336, 0.70582324)
 zoom = Vector2(2, 2)
 
-[node name="CharacterBody2D" parent="." unique_id=1449712719 instance=ExtResource("4_2a60c")]
+[node name="CharacterBody2D" parent="." unique_id=1449712719 groups=["Player"] instance=ExtResource("4_2a60c")]
 position = Vector2(227, 173)
 
-[node name="Area2D" parent="." unique_id=846148105 instance=ExtResource("5_y4dr7")]
+[node name="DeathZone" type="Area2D" parent="." unique_id=1039971104]
+script = ExtResource("6_didp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=86478845]
+position = Vector2(340, 411)
+shape = SubResource("RectangleShape2D_ostoq")
+
+[node name="Area2D2" parent="." unique_id=272962860 instance=ExtResource("7_2a60c")]
+position = Vector2(384, 125)
+
+[node name="Area2D3" parent="." unique_id=1540370181 instance=ExtResource("7_2a60c")]
+position = Vector2(442, 189)
+
+[node name="Coins" type="Node2D" parent="." unique_id=1727113315]
 position = Vector2(177, 112)
+
+[node name="Area2D" parent="Coins" unique_id=846148105 instance=ExtResource("5_y4dr7")]
+
+[node name="Area2D2" parent="Coins" unique_id=1000800235 instance=ExtResource("5_y4dr7")]
+position = Vector2(384, 110)
+
+[connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
