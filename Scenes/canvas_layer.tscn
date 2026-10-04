@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d0d2lsinaxirc"]
+
+[ext_resource type="Script" uid="uid://hf8wbr2pnoq8" path="res://Scripts/canvas_layer.gd" id="1_5oaki"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1187346667 groups=["ui"]]
+script = ExtResource("1_5oaki")
+
+[node name="Control" type="Control" parent="." unique_id=749001322]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelCoins" type="Label" parent="Control" unique_id=1969460181]
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 60
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1

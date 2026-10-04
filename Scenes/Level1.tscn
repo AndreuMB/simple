@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://53se0jef1qtc" path="res://Scenes/coin.tscn" id="5_y4dr7"]
 [ext_resource type="Script" uid="uid://ctvna6u7jjp3y" path="res://Scripts/death_zone.gd" id="6_didp7"]
 [ext_resource type="PackedScene" uid="uid://c7k15kuxkriob" path="res://Scenes/trap.tscn" id="7_2a60c"]
+[ext_resource type="PackedScene" uid="uid://d0d2lsinaxirc" path="res://Scenes/canvas_layer.tscn" id="8_4iphx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jghel"]
 texture = ExtResource("1_lyd6k")
@@ -684,9 +685,11 @@ position = Vector2(442, 189)
 [node name="Coins" type="Node2D" parent="." unique_id=1727113315]
 position = Vector2(177, 112)
 
-[node name="Area2D" parent="Coins" unique_id=846148105 instance=ExtResource("5_y4dr7")]
+[node name="Area2D" parent="Coins" unique_id=846148105 groups=["coins"] instance=ExtResource("5_y4dr7")]
 
-[node name="Area2D2" parent="Coins" unique_id=1000800235 instance=ExtResource("5_y4dr7")]
+[node name="Area2D2" parent="Coins" unique_id=1000800235 groups=["coins"] instance=ExtResource("5_y4dr7")]
 position = Vector2(384, 110)
+
+[node name="CanvasLayer" parent="." unique_id=1187346667 groups=["ui"] instance=ExtResource("8_4iphx")]
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
